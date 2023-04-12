@@ -90,6 +90,8 @@ const messageAwareness = 1
  * @param {WSSharedDoc} doc
  */
 const updateHandler = (update, origin, doc) => {
+    console.log("=====update, origin, doc=", update, origin, doc);
+    
   const encoder = encoding.createEncoder()
   encoding.writeVarUint(encoder, messageSync)
   syncProtocol.writeUpdate(encoder, update)
