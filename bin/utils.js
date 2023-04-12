@@ -173,6 +173,8 @@ exports.getYDoc = getYDoc
  */
 const messageListener = (conn, doc, message) => {
   try {
+    logfn().debug("================= doc, message=", doc, message);
+                  
     const encoder = encoding.createEncoder()
     const decoder = decoding.createDecoder(message)
     const messageType = decoding.readVarUint(decoder)
