@@ -1,4 +1,4 @@
-import logger from '../../../server/services/logger';
+const logger = require( '../../../server/services/logger' );
 const namespace = 'y-websocket:bin:utils';
 var logfn = logger.getfn({namespace});
 
