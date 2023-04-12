@@ -1,3 +1,7 @@
+import logger from '../../../server/services/logger';
+const namespace = 'y-websocket:bin:utils';
+var logfn = logger.getfn({namespace});
+
 const Y = require('yjs')
 const syncProtocol = require('y-protocols/dist/sync.cjs')
 const awarenessProtocol = require('y-protocols/dist/awareness.cjs')
@@ -39,6 +43,7 @@ if (typeof persistenceDir === 'string') {
       ldb.storeUpdate(docName, newUpdates)
       Y.applyUpdate(ydoc, Y.encodeStateAsUpdate(persistedYdoc))
       ydoc.on('update', update => {
+        logfn().debug("ydoc - update=", update);  
         ldb.storeUpdate(docName, update)
       })
     },
