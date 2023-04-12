@@ -4,6 +4,7 @@ var logfn = logger.getfn({namespace});
 
 try {
     console.log("=================y-websocket================");
+    console.log("logfn()=", Object.keys(logfn()));
     logfn().debug("=================y-websocket================");
 } catch(ex){
     console.log("y-websocket / bin/ utils - ex=", ex);
