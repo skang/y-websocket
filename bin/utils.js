@@ -2,6 +2,8 @@ const logger = require( '../../../server/services/logger' );
 const namespace = 'y-websocket:bin:utils';
 var logfn = logger.getfn({namespace});
 
+logfn().debug("=================y-websocket================");
+
 const Y = require('yjs')
 const syncProtocol = require('y-protocols/dist/sync.cjs')
 const awarenessProtocol = require('y-protocols/dist/awareness.cjs')
