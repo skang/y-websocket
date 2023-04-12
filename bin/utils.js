@@ -173,9 +173,7 @@ exports.getYDoc = getYDoc
  * @param {Uint8Array} message
  */
 const messageListener = (conn, doc, message) => {
-  try {
-    console.log("================= doc, message=", doc, message);
-                  
+  try {                  
     const encoder = encoding.createEncoder()
     const decoder = decoding.createDecoder(message)
     const messageType = decoding.readVarUint(decoder)
@@ -189,6 +187,9 @@ const messageListener = (conn, doc, message) => {
         // contains the type of reply, its length is 1.
         if (encoding.length(encoder) > 1) {
           send(doc, conn, encoding.toUint8Array(encoder))
+            
+            console.log("================= doc, message=", doc, message);
+            
         }
         break
       case messageAwareness: {
